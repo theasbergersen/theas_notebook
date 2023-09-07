@@ -1,5 +1,4 @@
 import { NoteData, Tag } from "./App"
-import DatePicker from "./DatePicker"
 import { NoteForm } from "./NoteForm"
 
 type NewNoteProps = {
@@ -16,7 +15,6 @@ export function NewNote({ onSubmit, onAddTag, availableTags }: NewNoteProps) {
         onAddTag={onAddTag} 
         availableTags={availableTags} 
         />
-        <DatePicker />
         </>
 
     )

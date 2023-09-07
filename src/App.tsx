@@ -9,8 +9,6 @@ import { NoteList } from "./NoteList"
 import { NoteLayout } from "./NoteLayout"
 import { Note } from "./Note"
 import { EditNote } from "./EditNote"
-import DatePick from "./DatePicker"
-import DatePicker from "./DatePicker"
 
 
 export type Note = {

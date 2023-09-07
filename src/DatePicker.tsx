@@ -7,7 +7,7 @@ function DatePick(): JSX.Element {
 
   return (
     <>
-      <h1>Selected Date : {date} </h1>
+      <h1 className="mb-4">Selected Date : {date} </h1>
       <input type="date" onChange={(e) => setDate(e.target.value)} />
     </>
   );
