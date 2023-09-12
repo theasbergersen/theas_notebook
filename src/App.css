@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh; /* Make the container at least the height of the viewport */
+}
+

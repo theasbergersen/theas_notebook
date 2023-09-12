@@ -31,6 +31,7 @@ export function NoteForm({ onSubmit, onAddTag, availableTags, title = "", markdo
     }
 
     return (
+        
         <Form onSubmit={handleSubmit} >
 
         <Stack gap={4} style={{display: "flex",
@@ -46,7 +47,7 @@ export function NoteForm({ onSubmit, onAddTag, availableTags, title = "", markdo
 
                 <Col>
                 <Form.Group controlId="tags">
-                    <Form.Label>Type of workout</Form.Label>
+                    <Form.Label>Type treningsøkt</Form.Label>
                     <CreatableReactSelect 
                         onCreateOption={label =>{
                             const newTag = { id: uuidV4(), label }
@@ -71,19 +72,19 @@ export function NoteForm({ onSubmit, onAddTag, availableTags, title = "", markdo
                 </Col>
             </Row>
             <Form.Group controlId="markdown">
-                <Form.Label>Descripton</Form.Label>
+                <Form.Label>Beskrivelse</Form.Label>
                 <Form.Control defaultValue={markdown}
                 required as="textarea" 
                 ref={markdownRef} 
-                rows={15}/>
+                rows={10}/>
             </Form.Group>
             <Stack direction="horizontal" gap={3} className="justify-content-end">
                 <Button type="submit" variant="primary">
-                    Save
+                    Lagre
                     </Button>
                 <Link to="..">
                 <Button type="button" variant="outline-secondary">
-                    Cancel
+                    Avbryt
                     </Button>
                 </Link>
                 

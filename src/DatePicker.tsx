@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
+import DatePicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css";
 
-function DatePick(): JSX.Element {
-  const [date, setDate] = useState<string | undefined>();
+function DatePickerComponent(): JSX.Element {
+  const [startDate, setStartDate] = useState<Date>(new Date());
 
-  console.log("Date", date);
+  function onChangeDateHandler(value: Date | null): void {
+    if (value) {
+      setStartDate(value);
+    }
+  }
 
   return (
-    <>
-      <h1 className="mb-4">Selected Date : {date} </h1>
-      <input type="date" onChange={(e) => setDate(e.target.value)} />
-    </>
+    <div>
+      <DatePicker
+        selected={startDate}
+        onChange={onChangeDateHandler}
+        dateFormat="dd MMM yyyy"
+      />
+    </div>
   );
 }
 
-export default DatePick;
+export default DatePickerComponent;
+
+
+
+

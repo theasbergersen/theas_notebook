@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
 import { Tag } from "./App";
 import styles from "./NoteList.module.css";
+import logoImage from './your-logo.png.png';
+
 
 
 type SimplifiedNote = {
@@ -48,15 +50,17 @@ export function NoteList({ availableTags, notes, onDeleteTag, onUpdateTag }: Not
     
     return (
     <>
+    <img src={logoImage} alt="Your Logo" className="logo" />
     <Row className="align-items-center mb-4">
+        
         <Col><h1>Workout-diary</h1></Col>
         <Col xs="auto">
             <Stack gap ={2} direction="horizontal">
                 <Link to="/new">
-                    <Button variant="primary">Create</Button>
+                    <Button variant="primary">Lagre ny økt</Button>
                 </Link>
                 <Button onClick={() => setEditTagsModalIsOpen(true)}
-                variant="outline-secondary">Edit Tags</Button>
+                variant="outline-secondary">Endre type økter</Button>
             </Stack>
         </Col>
     </Row>
@@ -65,7 +69,7 @@ export function NoteList({ availableTags, notes, onDeleteTag, onUpdateTag }: Not
         <Row className="mb-4">
             <Col>
             <Form.Group controlId="title">
-                <Form.Label>Search for workouts</Form.Label>
+                <Form.Label>Søk etter økter</Form.Label>
                 <Form.Control type="text" 
                 value={title} 
                 onChange={e => setTitle(e.target.value)}
@@ -74,7 +78,7 @@ export function NoteList({ availableTags, notes, onDeleteTag, onUpdateTag }: Not
             </Col>
             <Col>
             <Form.Group controlId="tags">
-                    <Form.Label>Choose workout tags</Form.Label>
+                    <Form.Label>Velg type økter</Form.Label>
                     <ReactSelect 
                     value={selectedTags.map(tag => {
                         return { label: tag.label, value: tag.id}

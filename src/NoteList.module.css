@@ -9,3 +9,9 @@
     translate: 0 -5px;
     box-shadow: 0 5px 8px 0 rgba(0,0,0, .2);
 }
+.logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+  }

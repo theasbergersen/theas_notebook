@@ -9,6 +9,7 @@ import { NoteList } from "./NoteList"
 import { NoteLayout } from "./NoteLayout"
 import { Note } from "./Note"
 import { EditNote } from "./EditNote"
+import "./App.css";
 
 
 export type Note = {
@@ -97,6 +98,7 @@ function App() {
   }
 
   return (
+    <div className="centered-content">
     <Container className="my-4" >
       <Routes>
         <Route path="/" element={<NoteList 
@@ -129,6 +131,7 @@ function App() {
 
   </Routes>
   </Container>
+  </div>
   )
 }
 
