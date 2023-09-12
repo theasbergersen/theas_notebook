@@ -3,7 +3,9 @@ import { Form, Stack, Row, Col, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import CreatableReactSelect from "react-select/creatable"
 import { NoteData, Tag } from "./App";
-import { v4 as uuidV4 } from "uuid"
+import { v4 as uuidV4 } from "uuid";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 type NoteFormProps = {
@@ -12,10 +14,14 @@ type NoteFormProps = {
     availableTags: Tag[]
 } & Partial<NoteData>
 
-export function NoteForm({ onSubmit, onAddTag, availableTags, title = "", markdown = "", tags = [] }: NoteFormProps) {
+export function NoteForm({ onSubmit, onAddTag, availableTags, title = "", markdown = "", tags = [], date = "", }: NoteFormProps) {
     const titleRef = useRef<HTMLInputElement>(null)
     const markdownRef = useRef<HTMLTextAreaElement>(null)
     const [selectedTags, setSelectedTags] = useState<Tag[]>(tags)
+    const [selectedDate, setSelectedDate] = useState<Date | null>(
+        date ? new Date(date) : null
+      ); // Initialize with the provided date
+    
     const navigate = useNavigate()
 
     function handleSubmit(e: FormEvent) {
@@ -25,6 +31,7 @@ export function NoteForm({ onSubmit, onAddTag, availableTags, title = "", markdo
             title: titleRef.current!.value,
             markdown: markdownRef.current!.value,
             tags: selectedTags,
+            date: selectedDate ? selectedDate.toISOString() : "",
         })
 
         navigate("..")
@@ -42,6 +49,17 @@ export function NoteForm({ onSubmit, onAddTag, availableTags, title = "", markdo
                 <Form.Group controlId="title">
                     <Form.Label>Tittel</Form.Label>
                     <Form.Control ref={titleRef} required defaultValue={title}/>
+                </Form.Group>
+                </Col>
+
+                <Col>
+                <Form.Group controlId="date">
+                 <Form.Label>Dato</Form.Label>
+                <DatePicker
+                    selected={selectedDate}
+                    onChange={(date) => setSelectedDate(date)}
+                    dateFormat="yyyy-MM-dd"
+                />
                 </Form.Group>
                 </Col>
 

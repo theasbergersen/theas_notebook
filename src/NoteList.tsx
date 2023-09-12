@@ -130,7 +130,7 @@ function NoteCard({ id, title, tags }: SimplifiedNote) {
                     <Stack gap={1} direction="horizontal"
                     className="jusitify-content-center flex-wrap">
                         {tags.map(tag =>(
-                            <Badge className="text-truncate" 
+                            <Badge className={`tag ${styles.tag}`} 
                             key={tag.id}>{tag.label}
 
                             </Badge>

@@ -24,12 +24,14 @@ export type RawNoteData = {
   title: string
   markdown: string
   tagIds: string[]
+  date: string
 }
 
 export type NoteData = {
   title: string
   markdown: string
   tags: Tag[]
+  date: string
 }
 
 export type Tag = {

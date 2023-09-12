@@ -49,3 +49,10 @@
   min-height: 10vh; /* Make the container at least the height of the viewport */
 }
 
+.tag {
+  background-color: #007bff; /* Blue background color */
+  color: white; /* Text color */
+  padding: 4px 8px; /* Adjust padding as needed */
+  border-radius: 4px; /* Add rounded corners for a button-like appearance */
+  margin-right: 4px; /* Add spacing between tags */
+}

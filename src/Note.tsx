@@ -45,6 +45,7 @@ export function Note( { onDelete}: NoteProps) {
         </Col>
 
     </Row>
+    <p>Dato: {new Date(note.date).toLocaleDateString()}</p> {/* Display the date */}
     <ReactMarkdown>{note.markdown}</ReactMarkdown>
     </>
     )
